@@ -1,13 +1,3 @@
-Student ID: 720058039
-Candidate Number: 243160
-Name: Rahul Pawan Somani
-
-link: http://ml-lab-4d78f073-aa49-4f0e-bce2-31e5254052c7.ukwest.cloudapp.azure.com:53179/index.php
-
-Choices Made:-
--Avatar selector: complex
--Game: medium
-
 navbar.php
 -looks for username and assests of avatar which will be chosen by the user, if the username and assests of avatar are not saved in the cookies then it only gives links to homepage and registration page otherwise it will give the links to the homepage, play pairs (which will redirect the user to the instructions page from where they can start playing the game) and the leaderboard page
 -added animations which take place if the mouse pointer is hovering over any buttons
