@@ -1,0 +1,73 @@
+.navbar {
+    background: blue;
+    padding: 0;
+}
+
+.right_side {
+    float: right;
+}
+
+a {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-family: Verdana;
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+a:hover {
+    background: grey;
+}
+
+.home {
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.playPairs {
+    padding-top: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.leaderboard {
+    padding-top: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.registration {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.avatar {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+.avatar img {
+    height: 40px;
+    position: absolute;
+    top: 3px;
+}
+
+.mid {
+    margin-left: 1130px;
+}
+
+.mid .avatar {
+    margin-left: 100px;
+}
+
+.usermane {
+    font-family: 'Times New Roman';
+    color: rgb(255, 186, 25);
+    font-weight: bolder;
+    font-size: 20px;
+}

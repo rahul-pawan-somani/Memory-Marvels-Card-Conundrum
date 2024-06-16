@@ -1,0 +1,104 @@
+body {
+    background-image: url('arcade-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.username {
+    padding-left: 7px;
+    font-size: 28px;
+    color: yellow;
+}
+
+h2 {
+    font-family: 'Cooper Black';
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.default-avatar {
+    position: relative;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
+
+.default-avatar img {
+    margin-right: 50px;
+    height: 50px;
+    position: absolute;
+}
+
+.avatar-container {
+    margin-top: 30px;
+    padding-left: 7px;
+    text-align: left;
+    align-items: left;
+}
+
+.avatar-container p {
+    font-family: 'Bookman Old Style';
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 26px;
+    margin: 0;
+    padding: 0;
+}
+
+.avatar-container::before {
+    content: "";
+    position: absolute;
+    padding-bottom: 20px;
+    top: 15.75%;
+    width: 31%;
+    height: 63.7%;
+    background-color: grey;
+    z-index: -1;
+    box-shadow: inset 0px 0px 0px 1px black, 6px 6px 6px rgb(0, 0, 0);
+    border: 4px solid black;
+    box-sizing: border-box;
+}
+
+.avatar-options {
+    margin-top: 7px;
+    padding: 5px;
+}
+
+.options {
+    display: inline-block;
+    justify-content: left;
+    align-items: left;
+}
+
+.options img {
+    margin: 10px;
+    height: 50px;
+}
+
+button {
+    margin-left: 7px;
+    display: inline-block;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10-px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: inset 0px 0px 0px 1px black, 6px 6px 6px rgb(0, 0, 0);
+    border: 4px solid black;
+    box-sizing: border-box;
+    border-radius: 12px;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #0097E6;
+    color: rgb(4, 4, 75);
+    box-shadow: 4px 4px 5px rgb(0, 0, 0);
+}
