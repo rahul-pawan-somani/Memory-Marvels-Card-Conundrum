@@ -1,47 +1,34 @@
-<!DOCTYPE html>
-<html>
+<?php
+$hasAvatar = isset($_COOKIE["username"], $_COOKIE["skinColor"], $_COOKIE["eyes"], $_COOKIE["mouth"]);
+$username = htmlspecialchars($_COOKIE["username"] ?? "", ENT_QUOTES, "UTF-8");
+$skinColor = htmlspecialchars($_COOKIE["skinColor"] ?? "", ENT_QUOTES, "UTF-8");
+$eyes = htmlspecialchars($_COOKIE["eyes"] ?? "", ENT_QUOTES, "UTF-8");
+$mouth = htmlspecialchars($_COOKIE["mouth"] ?? "", ENT_QUOTES, "UTF-8");
+?>
 
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="navbar_styles.css">
-</head>
+<nav>
+    <div class="navbar">
+        <a class="home" href="index.php">Home</a>
 
-<body>
-    <nav>
-        <div class="navbar">
-            <a class="home" href="index.php">Home</a>
-
-            <?php
-            if (isset($_COOKIE["username"])) {
-                $username = $_COOKIE["username"];
-                $skinColor = $_COOKIE["skinColor"];
-                $eyes = $_COOKIE["eyes"];
-                $mouth = $_COOKIE["mouth"];
-                ?>
-                <div class="mid">
-                    <div class="usermane">
-                        <?php echo $username; ?>
-                    </div>
-                    <div class="avatar">
-                        <img src="<?php echo $skinColor; ?>">
-                        <img src="<?php echo $eyes; ?>">
-                        <img src="<?php echo $mouth; ?>">
-                    </div>
+        <?php if ($hasAvatar) { ?>
+            <div class="mid">
+                <div class="profile-name">
+                    <?php echo $username; ?>
                 </div>
-                <div class="right_side">
-                    <a class="playPairs" href="instructions.php">Play Pairs</a>
-                    <a class="leaderboard" href="leaderboard.php">Leaderboard</a>
-                    <?php
-            } else {
-                ?>
-                    <a class="registration" href="registration.php">Register</a>
-                    <?php
-            }
-            ?>
+                <div class="avatar">
+                    <img src="<?php echo $skinColor; ?>" alt="">
+                    <img src="<?php echo $eyes; ?>" alt="">
+                    <img src="<?php echo $mouth; ?>" alt="">
+                </div>
             </div>
-        </div>
-    </nav>
-</body>
-
-</html>
+            <div class="right_side">
+                <a class="playPairs" href="instructions.php">Play Pairs</a>
+                <a class="leaderboard" href="leaderboard.php">Leaderboard</a>
+            </div>
+        <?php } else { ?>
+            <div class="right_side">
+                <a class="registration" href="registration.php">Register</a>
+            </div>
+        <?php } ?>
+    </div>
+</nav>

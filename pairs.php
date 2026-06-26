@@ -5,7 +5,7 @@
     <title>Pairs Game</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="navbar_styles.css">
     <style>
         body {
             background-image: url('arcade-unsplash.jpg');
@@ -160,6 +160,10 @@
             var eyes = ["./emoji-assets/eyes/closed.png", "./emoji-assets/eyes/laughing.png", "./emoji-assets/eyes/long.png", "./emoji-assets/eyes/normal.png", "./emoji-assets/eyes/rolling.png", "./emoji-assets/eyes/winking.png"];
             var mouth = ["./emoji-assets/mouth/open.png", "./emoji-assets/mouth/sad.png", "./emoji-assets/mouth/smiling.png", "./emoji-assets/mouth/straight.png", "./emoji-assets/mouth/surprise.png", "./emoji-assets/mouth/teeth.png"];
 
+            function toRelativePath(imageSource) {
+                return imageSource.replace(window.location.origin + "/", "./");
+            }
+
             for (var i = 0; i < 5; i++) {
                 shuffle(eyes);
                 shuffle(mouth);
@@ -208,9 +212,9 @@
                 var images = document.querySelectorAll('img');
                 for (let a = 0; a < images.length; a++) {
                     var imgSrc = images[a].src;
-                    imgSrc = imgSrc.replace("http://ml-lab-4d78f073-aa49-4f0e-bce2-31e5254052c7.ukwest.cloudapp.azure.com:53179/", "./");
+                    imgSrc = toRelativePath(imgSrc);
                     if (imgSrc == path) {
-                        var divElement = images[i].parentElement;
+                        var divElement = images[a].parentElement;
                         var faceDownId = "#" + divElement.id + " #face-down";
                         var faceDown_ = document.querySelector(faceDownId);
                         faceDown_.style.visibility = "visible";
@@ -235,7 +239,6 @@
                 leaderboardLink.id = "save-score";
                 leaderboardLink.addEventListener('click', () => {
                     document.cookie = "score=" + score;
-                    window.location.href = './leaderboard.html';
                 });
                 finalScoreDiv.appendChild(leaderboardLink);
                 document.body.appendChild(finalScoreDiv);
@@ -252,7 +255,7 @@
                         var list1 = [];
                         for (var i = 0; i < imagesList1.length; i++) {
                             var imgSrc1 = imagesList1[i].src;
-                            imgSrc1 = imgSrc1.replace("http://ml-lab-4d78f073-aa49-4f0e-bce2-31e5254052c7.ukwest.cloudapp.azure.com:53179/", "./");
+                            imgSrc1 = toRelativePath(imgSrc1);
                             list1.push(imgSrc1);
                         }
                         list1.pop();
@@ -268,7 +271,7 @@
                         var list2 = [];
                         for (var i = 0; i < imagesList2.length; i++) {
                             var imgSrc2 = imagesList2[i].src;
-                            imgSrc2 = imgSrc2.replace("http://ml-lab-4d78f073-aa49-4f0e-bce2-31e5254052c7.ukwest.cloudapp.azure.com:53179/", "./");
+                            imgSrc2 = toRelativePath(imgSrc2);
                             list2.push(imgSrc2);
                         }
                         list2.pop();

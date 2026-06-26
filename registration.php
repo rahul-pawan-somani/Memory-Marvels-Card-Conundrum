@@ -1,4 +1,5 @@
 <?php
+$cookieExpiry = time() + (5 * 365 * 24 * 60 * 60);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(trim($_POST["username"]))) {
@@ -7,7 +8,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<script>window.alert("Invalid username. Username cannot contain special characters");</script>';
     } else {
         $username = $_POST["username"];
-        setcookie("username", $username, time() + (5 * 365 * 24 * 60 * 60));
+        setcookie("username", $username, $cookieExpiry);
+
+        if (!isset($_COOKIE["skinColor"])) {
+            setcookie("skinColor", "./emoji-assets/skin/yellow.png", $cookieExpiry);
+        }
+        if (!isset($_COOKIE["eyes"])) {
+            setcookie("eyes", "./emoji-assets/eyes/normal.png", $cookieExpiry);
+        }
+        if (!isset($_COOKIE["mouth"])) {
+            setcookie("mouth", "./emoji-assets/mouth/smiling.png", $cookieExpiry);
+        }
     }
 }
 ?>
@@ -19,8 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>User Registration Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="navbar_styles.css">
     <link rel="stylesheet" type="text/css" href="registration_styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="emoji-assets.js"></script>
 </head>
 
@@ -43,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br>
                 <br>
                 <p>Choose Skin Color:</p>
-                <div class="options" id="skinColor">
+                <div class="options" id="skinColorOptions">
                     <img src="emoji-assets/skin/green.png" onclick="changeSkinColor('green')" alt="Image of green skin">
                     <img src="emoji-assets/skin/red.png" onclick="changeSkinColor('red')" alt="Image of red skin">
                     <img src="emoji-assets/skin/yellow.png" onclick="changeSkinColor('yellow')"
@@ -52,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div>
                 <p>Choose Eyes:</p>
-                <div class="options" id="eyes">
+                <div class="options" id="eyesOptions">
                     <img src="emoji-assets/eyes/closed.png" onclick="changeEyes('closed')" alt="Image of closed eyes">
                     <img src="emoji-assets/eyes/laughing.png" onclick="changeEyes('laughing')"
                         alt="Image of laughing eyes">
@@ -66,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div>
                 <p>Choose Mouth:</p>
-                <div class="options" id="mouth">
+                <div class="options" id="mouthOptions">
                     <img src="emoji-assets/mouth/open.png" onclick="changeMouth('open')" alt="Image of open mouth">
                     <img src="emoji-assets/mouth/sad.png" onclick="changeMouth('sad')" alt="Image of sad mouth">
                     <img src="emoji-assets/mouth/smiling.png" onclick="changeMouth('smiling')"
@@ -86,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_COOKIE["username"]) && isset($_COOKIE["eyes"])) {
         ?>
         <script>
-            alert("Click on Home to to get started");
+            alert("Click on Home to get started");
         </script>
         <?php
     }

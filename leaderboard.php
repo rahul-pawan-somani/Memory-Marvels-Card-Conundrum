@@ -1,10 +1,15 @@
-<html>
+<?php
+$username = htmlspecialchars($_COOKIE["username"] ?? "Current player", ENT_QUOTES, "UTF-8");
+$score = htmlspecialchars($_COOKIE["score"] ?? "Not saved", ENT_QUOTES, "UTF-8");
+?>
 
+<!DOCTYPE html>
+<html>
 <head>
     <title>Pairs Game</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="navbar_styles.css">
     <style>
         body {
             background-image: url('arcade-unsplash.jpg');
@@ -64,6 +69,13 @@
             font-weight: bold;
             color: white;
         }
+
+        .sample-label {
+            background-color: #333;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -80,39 +92,42 @@
         <tbody>
             <tr>
                 <td>
-                    <?php echo $_COOKIE["username"] ?>
+                    <?php echo $username; ?>
                 </td>
                 <td>
-                    <?php echo $_COOKIE["score"] ?>
+                    <?php echo $score; ?>
                 </td>
             </tr>
             <tr>
-                <td>Bodhini2004</td>
+                <td colspan="2" class="sample-label">Static sample entries</td>
+            </tr>
+            <tr>
+                <td>Sample Player 1</td>
                 <td>1000</td>
             </tr>
             <tr>
-                <td>Mahesh04</td>
+                <td>Sample Player 2</td>
                 <td>1000</td>
             </tr>
             <tr>
-                <td>Tanvee3003</td>
+                <td>Sample Player 3</td>
                 <td>400</td>
             </tr>
             <tr>
-                <td>Agneta</td>
+                <td>Sample Player 4</td>
                 <td>200</td>
             </tr>
             <tr>
-                <td>Udit69</td>
+                <td>Sample Player 5</td>
                 <td>400</td>
             </tr>
             <tr>
-                <td>Vibhav03</td>
+                <td>Sample Player 6</td>
                 <td>800</td>
             </tr>
         </tbody>
 
     </table>
-    </boddy>
+    </body>
 
 </html>
